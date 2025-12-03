@@ -19,10 +19,21 @@ fi
 # Always operate from the frontend directory
 cd "${FRONTEND_DIR}"
 
+# Assert current working directory is exactly the frontend directory
+CWD="$(pwd)"
+if [[ "${CWD}" != "${FRONTEND_DIR}" ]]; then
+  echo "ERROR: Current working directory (${CWD}) does not match FRONTEND_DIR (${FRONTEND_DIR}). Aborting." >&2
+  exit 2
+fi
+
+echo "Frontend run hook starting in: ${CWD}"
+echo "Expecting package.json at: ${CWD}/package.json"
+
 # Sanity check: ensure package.json is present
 if [[ ! -f "package.json" ]]; then
   echo "ERROR: package.json not found in ${FRONTEND_DIR}. Aborting to avoid ENOENT." >&2
-  exit 2
+  ls -la
+  exit 3
 fi
 
 # Install and start
