@@ -3,7 +3,7 @@
     {
       "name": "frontend_react_js",
       "working_directory": "/home/kavia/workspace/code-generation/updated--animal-behavior-analytics-platform-animal-behavior-analytics-platform-40568-40578-40605/frontend_react_js",
-      "start": "npm install && npm start",
+      "start": "bash -lc 'chmod +x .init/run.sh && CONTAINER_NAME=frontend_react_js ./.init/run.sh'",
       "healthcheck": "npm run health"
     },
     {

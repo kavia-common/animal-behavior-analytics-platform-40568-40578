@@ -11,3 +11,4 @@ How to run locally:
 Notes:
 - The app serves a static health file at `/healthz` (public/healthz.txt) for container health probes.
 - Startup scripts run from this directory and do NOT chdir into any backend path.
+- The preview uses .init/run.sh as the authoritative start script, which forces cwd to this directory and prevents accidental runs from backend_fastapi.
