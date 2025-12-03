@@ -1,0 +1,16 @@
+{
+  "containers": [
+    {
+      "name": "frontend_react_js",
+      "working_directory": "/home/kavia/workspace/code-generation/updated--animal-behavior-analytics-platform-animal-behavior-analytics-platform-40568-40578-40605/frontend_react_js",
+      "start": "npm install && npm start",
+      "healthcheck": "npm run health"
+    },
+    {
+      "name": "backend_fastapi",
+      "working_directory": "/home/kavia/workspace/code-generation/updated--animal-behavior-analytics-platform-animal-behavior-analytics-platform-40568-40578-40605/backend_fastapi",
+      "start": "bash -lc 'python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && uvicorn src.api.main:app --host 0.0.0.0 --port 3001'",
+      "healthcheck": "bash -lc 'curl -sSf http://localhost:3001/ || exit 1'"
+    }
+  ]
+}
